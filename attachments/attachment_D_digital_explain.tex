@@ -1,0 +1,30 @@
+\clearpage
+\section{Obsah digitálneho média}
+% Force page numbering format with multiple approaches
+\renewcommand{\thepage}{D-\arabic{page}}
+\setcounter{page}{1}
+% Additional forceful page style settings
+\makeatletter
+\def\ps@specialappendix{%
+  \def\@oddhead{}%
+  \def\@evenhead{}%
+  \def\@oddfoot{\hfil D-\arabic{page}\hfil}%
+  \def\@evenfoot{\hfil D-\arabic{page}\hfil}%
+}
+\makeatother
+\pagestyle{specialappendix}
+\thispagestyle{specialappendix}
+Thesis registration number in the information system: \FIITevidenceNumber.
+
+The attached digital medium contains the complete source code, configuration files, and scripts for this thesis. The ZIP archive is organized as follows:
+
+\begin{tabular}{@{}p{0.45\textwidth}p{0.55\textwidth}@{}}
+% No header, completely removed the header row
+\ttfamily README.md & Project overview and setup instructions \\[0.5em]
+\ttfamily applications/ & Source code for all applications \\
+\ttfamily \hspace{0.5cm} operators/ & Carbon-aware applications \\
+
+\end{tabular}
+% Apply the special page style to next page too
+\clearpage
+\thispagestyle{specialappendix}

@@ -1,0 +1,111 @@
+\include{constants}
+\documentclass[12pt,a4paper,oneside,openright,slovak]{article}
+\renewcommand{\contentsname}{Obsah}
+\include{packages}
+\bibliography{references}
+
+% Page design
+\pagestyle{fancy}
+\lhead{\nouppercase{\leftmark}}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+ 
+\begin{document}
+\pagenumbering{roman}
+\include{templates/title}
+\include{templates/assignment}
+\include{templates/declaration}
+\include{templates/acknowledgment}
+\include{templates/annotation}
+
+\setlength{\cftbeforesecskip}{3pt}
+
+% Table of contents
+\tableofcontents
+
+
+\begin{refsegment}
+
+\thispagestyle{empty}
+
+\pagestyle{fancy}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\clearpage
+\pagenumbering{arabic}
+\clearpage
+\input{chapters/01_Technical_Abstract}
+\clearpage
+\input{chapters/02_Lay_Summary}
+\clearpage
+\input{chapters/03_Introduction}
+\clearpage
+\input{chapters/04_00_Problem_Statement_and_Solution}
+
+\clearpage
+\input{chapters/05_Conclusions}
+% After your Conclusions chapter but before the end of the document
+\clearpage
+% Bibliography
+\addcontentsline{toc}{section}{Referencie}
+Obsahuje zoznam použitej literatúry (maximálne 70) musí obsahovať všetky náležitosti, tak ako uvádza norma STN ISO 690. V texte bakalárskeho projektu sa musia nachádzať odvolávky na každú citovanú literatúru. 
+
+\printbibliography[title=Referencie,segment=\therefsegment]
+
+\input{chapters/07_Scientific_part}
+
+% List of Figures
+% \addcontentsline{toc}{section}{List of Figures}
+% \listoffigures
+
+\thispagestyle{empty}
+\mbox{}
+
+\appendix
+\captionsetup[figure]{list=no}
+\captionsetup[table]{list=no}
+
+\begin{titlepage}
+    \centering
+    \vspace*{\fill}
+    {\Huge\bfseries Prílohy\par}
+    \vspace*{\fill}
+\end{titlepage}
+
+% Start Appendix A
+\clearpage
+\renewcommand{\thepage}{A-\arabic{page}}
+\setcounter{page}{1}
+\section{Prílohy}
+Do tejto časti patria obrazové prílohy, technická dokumentácia kódu, dockerizované aplikácie a ďalšie relevantné výstupy, ktoré dopĺňajú projekt a podporujú jeho transparentnosť, reprodukovateľnosť a praktickú využiteľnosť. Rozsah materiálu musí byť dostačujúci pre úspešné reprodukovanie popísaných experimentov.
+Súčasťou je aj plán práce riešenia projektu spolu so študentovým vyjadrením k jeho plneniu. V rámci práce je povinné uviesť plán práce.
+V rámci tejto časti je tiež popísaná štruktúra a účel odovzdaných súborov záverečnej práce v prehľadnej forme ako sú napr. zdrojové kódy, výsledky, grafy atď.
+
+
+
+% Start Appendix B
+\clearpage
+\renewcommand{\thepage}{B-\arabic{page}}
+\setcounter{page}{1}
+\input{attachments/appendix_B_Work_plan}
+
+% Start Appendix C
+\clearpage
+\renewcommand{\thepage}{C-\arabic{page}}
+\setcounter{page}{1}
+\input{attachments/appendix_C_technical_documentation}
+
+
+
+
+
+% Start Appendix D
+\clearpage
+\renewcommand{\thepage}{D-\arabic{page}}
+\setcounter{page}{1}
+\input{attachments/attachment_D_digital_explain}
+
+\end{refsegment}
+\end{document}
